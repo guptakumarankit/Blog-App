@@ -9,6 +9,7 @@ export const addBlog = async (req , res) => {
         const {title , subTitle , description , category , isPublished} = JSON.parse(req.body.blog);
 
         const imageFile = req.file;
+        // console.log(imageFile);
 
         // check if all fields are present 
         if(!title || !description || !category || !imageFile){
@@ -49,6 +50,7 @@ export const addBlog = async (req , res) => {
 export const getAllBlogs = async (req , res) => {
     try {
         const blogs = await Blog.find({isPublished : true});
+        console.log(blogs);
         res.json({success : true , blogs});
     } catch (error) {
         res.json({success : false , message : error.message})

@@ -53,6 +53,7 @@ const AddBlog = () => {
         
         formData.append('blog' , JSON.stringify(blog));
         formData.append('image' , image);
+        // console.log(image);
 
         const { data } = await axios.post('/api/blog/add' , formData);
 
